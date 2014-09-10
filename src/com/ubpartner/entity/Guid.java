@@ -18,17 +18,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 @Entity
 @Table(name="guids")
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class Guid implements Serializable{
 	
 	
 	
-	public String signature;
+	String signature;
 	
 	@Column(name="start_date")
 	String startDate;
@@ -94,7 +98,7 @@ public class Guid implements Serializable{
 		//version = pk.getVersion();
 	}
 	
-	@XmlValue
+@XmlElement
 	public String getSignature() {
 		return signature;
 	}

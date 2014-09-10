@@ -14,9 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="clients")
+@XmlRootElement
 public class Client implements Serializable{
   
   @Id
@@ -42,7 +45,7 @@ public Client(String cli, String us) {
   
   public Client(){}
 
-
+@XmlElement
 public int getId() {
 	return id;
 }
