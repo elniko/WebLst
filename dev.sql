@@ -12,23 +12,23 @@ MySQL - 5.5.16 : Database - lst_dev
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`lst_dev` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
 
 /*Table structure for table `clients` */
 
 DROP TABLE IF EXISTS `clients`;
 
 CREATE TABLE `clients` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `client` varchar(50) NOT NULL,
-  `user` varchar(50) NOT NULL,
-  `created_at` datetime DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `client` VARCHAR(50) NOT NULL,`Tables``Tables`
+  `user` VARCHAR(50) NOT NULL,
+  `created_at` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
+) ENGINE=INNODB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
 /*Data for the table `clients` */
 
-insert  into `clients`(`id`,`client`,`user`,`created_at`) values (62,'IBRC','IBRC_Giles','2013-05-22 22:24:11'),(63,'LLDV','LLDV_jlbertrand','2013-05-22 22:24:11'),(64,'CIBER','CIBER_Brustad','2013-05-22 22:24:11'),(65,'LLDV','LLDV_fdesaint','2013-05-22 22:24:11'),(66,'Effisoft','Effisoft','2013-05-22 22:24:11'),(67,'ubpartner','ubpartner','2013-05-22 22:24:11'),(68,'THEIA','THEIA_Lezmi','2013-05-22 22:24:11'),(69,'SAP','SAP_Azoulay','2013-05-22 22:24:11'),(70,'ubpartner','ubpartner_mdeville','2013-05-22 22:24:11'),(71,'EOL','EOL','2013-05-22 22:24:11'),(72,'ubpartner','MagicKey','2013-05-22 22:24:11'),(73,'LLDV','LLDV_rdagorn','2013-05-22 22:24:11'),(74,'CapGemini','CapGemini','2013-05-22 22:24:11'),(76,'Milliman','Milliman','2013-07-16 10:40:30'),(77,'Actelior','Actelior','2013-09-11 09:37:58'),(78,'Convista','Convista','2013-10-11 14:49:36'),(79,'CSSF','CSSF','2013-11-05 12:45:05'),(80,'Finanstilsynet','Finanstilsynet_Demo','2013-11-29 13:56:26'),(81,'ubpartner','ubpartner_gamick','2013-12-05 15:21:44'),(82,'ZEB','ZEB','2014-01-27 12:18:51'),(83,'C3s','C3s','2014-02-12 13:37:20'),(84,'Bpce','Bpce','2014-02-14 09:22:32'),(85,'MFSA','MFSA','2014-03-05 10:42:34'),(86,'Actuaris','Actuaris','2014-03-06 13:01:15');
+INSERT  INTO `clients`(`id`,`client`,`user`,`created_at`) VALUES (62,'IBRC','IBRC_Giles','2013-05-22 22:24:11'),(63,'LLDV','LLDV_jlbertrand','2013-05-22 22:24:11'),(64,'CIBER','CIBER_Brustad','2013-05-22 22:24:11'),(65,'LLDV','LLDV_fdesaint','2013-05-22 22:24:11'),(66,'Effisoft','Effisoft','2013-05-22 22:24:11'),(67,'ubpartner','ubpartner','2013-05-22 22:24:11'),(68,'THEIA','THEIA_Lezmi','2013-05-22 22:24:11'),(69,'SAP','SAP_Azoulay','2013-05-22 22:24:11'),(70,'ubpartner','ubpartner_mdeville','2013-05-22 22:24:11'),(71,'EOL','EOL','2013-05-22 22:24:11'),(72,'ubpartner','MagicKey','2013-05-22 22:24:11'),(73,'LLDV','LLDV_rdagorn','2013-05-22 22:24:11'),(74,'CapGemini','CapGemini','2013-05-22 22:24:11'),(76,'Milliman','Milliman','2013-07-16 10:40:30'),(77,'Actelior','Actelior','2013-09-11 09:37:58'),(78,'Convista','Convista','2013-10-11 14:49:36'),(79,'CSSF','CSSF','2013-11-05 12:45:05'),(80,'Finanstilsynet','Finanstilsynet_Demo','2013-11-29 13:56:26'),(81,'ubpartner','ubpartner_gamick','2013-12-05 15:21:44'),(82,'ZEB','ZEB','2014-01-27 12:18:51'),(83,'C3s','C3s','2014-02-12 13:37:20'),(84,'Bpce','Bpce','2014-02-14 09:22:32'),(85,'MFSA','MFSA','2014-03-05 10:42:34'),(86,'Actuaris','Actuaris','2014-03-06 13:01:15');
 
 /*Table structure for table `guid_relation` */
 

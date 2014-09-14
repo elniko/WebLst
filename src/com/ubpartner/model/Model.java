@@ -17,7 +17,7 @@ public abstract class Model {
 	}
 	
 	public void createSession(){
-		session = HibernateUtil.getSessionFactory().openSession();
+		//session = HibernateUtil.getSessionFactory().openSession();
 	}
 	
 	public void closeSession() {

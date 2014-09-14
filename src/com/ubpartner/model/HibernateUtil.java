@@ -3,9 +3,9 @@ package com.ubpartner.model;
 import java.io.File;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistryBuilder;
+//import org.hibernate.service.ServiceRegistryBuilder;
 
 
 
@@ -25,7 +25,7 @@ public final class HibernateUtil {
      * SessionFactory connecting to Hibernate.
      *
      */
-    private static final SessionFactory sessionFactory;
+   // private static final SessionFactory sessionFactory;
 
     static {
        try {
@@ -34,10 +34,10 @@ public final class HibernateUtil {
     	   //cfg.configure();
     	   //sessionFactory = cfg.buildSessionFactory(new ServiceRegistryBuilder().applySettings(cfg.getProperties()).getBootstrapServiceRegistry());
     	   
-    	   Configuration configuration = new Configuration().configure();
-    	  	StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-    	  	applySettings(configuration.getProperties());
-    	  	sessionFactory = configuration.buildSessionFactory(builder.build());
+    	  // Configuration configuration = new Configuration().configure();
+    	  //	StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+    	  //	applySettings(configuration.getProperties());
+    	  //	sessionFactory = configuration.buildSessionFactory(builder.build());
     	 
           //sessionFactory = new Configuration().configure().buildSessionFactory();
        } catch (Throwable ex) {
@@ -53,7 +53,7 @@ public final class HibernateUtil {
      * @return sessionfactory.
      *
      */
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
+   // public static SessionFactory getSessionFactory() {
+     //   return sessionFactory;
+    //}
 }
