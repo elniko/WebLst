@@ -19,22 +19,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name="clients")
-@XmlRootElement
+
 public class Client implements Serializable{
   
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+ 
   private int id;
   
   private String client;
   
   private String user;
   
-  @Column(name="created_at")
-  @Temporal(TemporalType.TIMESTAMP)
+ 
   private Date createdAt = new Date();
 
-  @OneToMany(mappedBy="client", fetch=FetchType.LAZY)
+
   private Set<Guid> guidList;
   
   
@@ -45,7 +43,8 @@ public Client(String cli, String us) {
   
   public Client(){}
 
-@XmlElement
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
 public int getId() {
 	return id;
 }
@@ -65,15 +64,16 @@ public void setUser(String user) {
 	this.user = user;
 }
 
-
+@Column(name="created_at")
 public Date getCreatedAt() {
 	return createdAt;
 }
+@Temporal(TemporalType.TIMESTAMP)
 public void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
 }
 
-
+@OneToMany(mappedBy="client", fetch=FetchType.LAZY)
 public Set<Guid> getGuidList() {
 	return guidList;
 }

@@ -34,45 +34,43 @@ public class Guid implements Serializable{
 	
 	String signature;
 	
-	@Column(name="start_date")
+	
 	String startDate;
 	
-	@Column(name="end_date")
+	
 	String endDate;
 	
-	@Column(name="xvt")
+
 	Boolean withXvt;
 	
 	int activations;
 	
 	Boolean cheating;
 	
-	@Column(name="created_at")
-	@Temporal(TemporalType.TIMESTAMP)
+	
 	Date createdAt = new Date();
 	
 	String api;
 	
-	@Column(name="old_guid")
+	
 	String oldGuid;
 	
 	Boolean isNew;
 	
-	@Column(name="end_xvt_date")
+	
 	String endXvt;
 	
 	
-     @EmbeddedId
+     //@EmbeddedId
 	GuidPk primaryKey = new GuidPk();
 	
-  @Column
+  
   String period;
   
-  @Column (name ="period_xvt")
+  
   String periodXvt;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="client_id")
+	
 	Client client;
 	
 	public Guid(){}
@@ -105,18 +103,21 @@ public class Guid implements Serializable{
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
+	@Column(name="start_date")
 	public String getStartDate() {
 		return startDate;
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
+	@Column(name="end_date")
 	public String getEndDate() {
 		return endDate;
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
+	@Column(name="xvt")
 	public Boolean getWithXvt() {
 		return withXvt;
 	}
@@ -135,9 +136,12 @@ public class Guid implements Serializable{
 	public void setCheating(Boolean cheating) {
 		this.cheating = cheating;
 	}
+	@Column(name="created_at")
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+	@Temporal(TemporalType.TIMESTAMP)
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
@@ -159,6 +163,7 @@ public class Guid implements Serializable{
 	public void setIsNew(Boolean isNew) {
 		this.isNew = isNew;
 	}
+	@Column(name="end_xvt_date")
 	public String getEndXvt() {
 		return endXvt;
 	}
@@ -177,7 +182,7 @@ public class Guid implements Serializable{
 	
 	
 
-
+    @EmbeddedId
 	public GuidPk getPrimaryKey() {
 		return primaryKey;
 	}
@@ -185,7 +190,8 @@ public class Guid implements Serializable{
 	public void setPrimaryKey(GuidPk primaryKey) {
 		this.primaryKey = primaryKey;
 	}
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="client_id")
 	public Client getClient() {
 		return client;
 	}
@@ -197,7 +203,7 @@ public class Guid implements Serializable{
 
 
 	
-
+	@Column
 	public String getPeriod() {
 		return period;
 	}
@@ -205,7 +211,7 @@ public class Guid implements Serializable{
 	public void setPeriod(String period) {
 		this.period = period;
 	}
-
+	@Column (name ="period_xvt")
 	public String getPeriodXvt() {
 		return periodXvt;
 	}

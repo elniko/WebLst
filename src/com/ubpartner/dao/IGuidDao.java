@@ -10,6 +10,9 @@ public interface IGuidDao {
 	
 	public List<Guid> getAll();
 	
+	public Guid getById(String guid, String tool, String version);
+	
+	public Guid getById(Guid.GuidPk pk);
 	
 
 }

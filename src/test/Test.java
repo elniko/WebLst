@@ -20,7 +20,14 @@ public class Test {
 
 	       IGuidService service = (IGuidService) ctx.getBean("guidService");
 	       
-	       List<Guid> guids = service.getAllGuids();
+	     //  List<Guid> guids = service.getAllGuids();
+	       
+	       Guid g = service.getById("00876ed1-288f-42c5-8ba5-8f0231f464bc", "xct", "1.5.4");
+	       
+	       if(g == null) {
+	    	   
+	    	   System.out.println("NULL");
+	       }
 int i = 0;
 
 	}

@@ -60,12 +60,15 @@ public final class GsonMessageBodyHandler implements MessageBodyWriter<Object>,
   public void writeTo(Object object, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
     OutputStreamWriter writer = new OutputStreamWriter(entityStream, UTF_8);
     try {
+    	
+    	
       Type jsonType;
       if (type.equals(genericType)) {
         jsonType = type;
       } else {
         jsonType = genericType;
       }
+    
       getGson().toJson(object, jsonType, writer);
     } finally {
       writer.close();
