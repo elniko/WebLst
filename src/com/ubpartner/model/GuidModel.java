@@ -11,7 +11,9 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 
 import com.ubpartner.entity.Guid;
-import com.ubpartner.entity.Guid.GuidPk;
+import com.ubpartner.entity.GuidPk;
+
+
 
 
 public class GuidModel extends Model{
@@ -26,7 +28,7 @@ public class GuidModel extends Model{
 	        Object guid = null;  	 
 		    try {
 		      createSession();
-		      guid = session.load(Guid.class, (Guid.GuidPk) id);
+		      guid = session.load(Guid.class, (GuidPk) id);
 		    } catch (Exception e) {
  	    	  throw new Exception("Error getById:Guid");
 		    } finally {
@@ -41,7 +43,7 @@ public class GuidModel extends Model{
 		Guid guid = null;  
 		
 		  createSession();
-	      Guid.GuidPk id = new Guid.GuidPk(sguid, tool, version);
+	     GuidPk id = new GuidPk(sguid, tool, version);
 	      
 	      guid = (Guid)session.load(Guid.class,  id);
 	      closeSession();
@@ -161,7 +163,7 @@ public class GuidModel extends Model{
 			  Guid guid = null;
 			  createSession();
 		      session.beginTransaction();
-		      if (obj instanceof Guid.GuidPk) {
+		      if (obj instanceof GuidPk) {
 		         guid = (Guid) getById(obj);
 		      } else {
 		    	 guid = (Guid) obj;

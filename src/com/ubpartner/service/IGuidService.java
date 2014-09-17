@@ -2,15 +2,16 @@ package com.ubpartner.service;
 
 import java.util.List;
 
-import com.ubpartner.entity.Guid;
+import com.ubpartner.dto.GuidDto;
+import com.ubpartner.entity.GuidPk;
 
 public interface IGuidService {
-   public void saveGid(Guid guid);
+   public void saveGid(GuidDto guid);
    
-   public List<Guid> getAllGuids();
+   public List<GuidDto> getAllGuids();
    
-   public Guid getById(Guid.GuidPk pk);
+   public GuidDto getById(GuidPk pk);
    
-   public Guid getById(String guid, String tool, String version);
+   public GuidDto getById(String guid, String tool, String version);
    
 }

@@ -2,17 +2,18 @@ package com.ubpartner.dao;
 
 import java.util.List;
 
-import com.ubpartner.entity.Guid;
+import com.ubpartner.dto.GuidDto;
+import com.ubpartner.entity.GuidPk;
 
 public interface IGuidDao {
 	
-	public void save(Guid guid);
+	public void save(GuidDto guid);
 	
-	public List<Guid> getAll();
+	public List<GuidDto> getAll();
 	
-	public Guid getById(String guid, String tool, String version);
+	public GuidDto getById(String guid, String tool, String version);
 	
-	public Guid getById(Guid.GuidPk pk);
+	public GuidDto getById(GuidPk pk);
 	
 
 }

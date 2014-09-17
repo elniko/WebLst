@@ -8,14 +8,14 @@ import java.util.Set;
 
 import org.hibernate.Query;
 
-import com.ubpartner.entity.Client;
+import com.ubpartner.dto.ClientDto;
 
 
 
 public class ClientModel extends Model {
 	
 	
-	private HashMap<String, ArrayList<Client>> usersList = new HashMap<String, ArrayList<Client>>();
+	private HashMap<String, ArrayList<ClientDto>> usersList = new HashMap<String, ArrayList<ClientDto>>();
 	private HashMap<String, Integer> clientIds = new HashMap<String, Integer>();
 	private ArrayList<User> clients = new  ArrayList<User>();  
 	
@@ -28,7 +28,7 @@ public class ClientModel extends Model {
 	        Object client = null;  	 
 		    try {
 		      createSession();
-		      client = session.load(Client.class, (Integer) id);
+		      client = session.load(ClientDto.class, (Integer) id);
 		     
 		    } catch (Exception e) {
  	    	  throw new Exception("Error getById:Client");
@@ -47,7 +47,7 @@ public class ClientModel extends Model {
 		    try {
 		      createSession();
 		      session.beginTransaction();
-		      session.save((Client) entity);
+		      session.save((ClientDto) entity);
 		      session.getTransaction().commit();
 		      
 		    } catch (Exception e) {
@@ -63,7 +63,7 @@ public class ClientModel extends Model {
 		    List<Object> clients = null;
 		    try {
 		      createSession();
-		      clients = session.createCriteria(Client.class).list();
+		      clients = session.createCriteria(ClientDto.class).list();
 		      
 		    } catch (Exception e) {
 		    	throw new Exception("Error getAll:Client");
@@ -103,7 +103,7 @@ public class ClientModel extends Model {
 		  try {
 			  createSession();
 		      session.beginTransaction();
-		      session.update((Client) entity);
+		      session.update((ClientDto) entity);
 		      session.getTransaction().commit();
 		    } catch (Exception e) {
 		    	throw new Exception("Error updateRecord:Client " + e.getMessage());
@@ -116,13 +116,13 @@ public class ClientModel extends Model {
 	@Override
 	public void deleteRecord(Object obj) throws Exception {
 		 try {
-			  Client client = null;
+			  ClientDto client = null;
 			  createSession();
 		      session.beginTransaction();
-		      if (obj instanceof Client) {
-		    	 client = (Client) obj;
+		      if (obj instanceof ClientDto) {
+		    	 client = (ClientDto) obj;
 		      } else {
-		    	 client = (Client) getById(obj);
+		    	 client = (ClientDto) getById(obj);
 		    	  
 		      }
 		      session.delete(client);
@@ -142,7 +142,7 @@ public class ClientModel extends Model {
 		usersList.clear();
 		clientIds.clear();
 		while (it.hasNext()) {
-			Client cli = (Client) it.next();
+			ClientDto cli = (ClientDto) it.next();
 			String clientName = cli.getClient();
 			String userName = cli.getUser();
 			int id = cli.getId();
@@ -154,13 +154,13 @@ public class ClientModel extends Model {
 			
 			
 			if (usersList.containsKey(clientName)) {
-				ArrayList<Client> users = usersList.get(clientName);
+				ArrayList<ClientDto> users = usersList.get(clientName);
 				
 				if (!containsUser(users, cli)) {
 				  users.add(cli);
 				}
 			} else {
-				ArrayList<Client> users = new ArrayList<Client>();
+				ArrayList<ClientDto> users = new ArrayList<ClientDto>();
 				if (!users.contains(cli)) {
 					  users.add(cli);
 				}
@@ -173,8 +173,8 @@ public class ClientModel extends Model {
 		
 	}
 	
-	private boolean containsUser(ArrayList<Client> users , Client user) {
-		for (Client us : users) {
+	private boolean containsUser(ArrayList<ClientDto> users , ClientDto user) {
+		for (ClientDto us : users) {
 			if (us.getUser().equals(user.getUser())) {
 				return true;
 			}
@@ -190,8 +190,8 @@ public class ClientModel extends Model {
 		
 	}
 	
-	public ArrayList<Client> getUsers(String client, boolean update) throws Exception {
-		 ArrayList<Client> result = new ArrayList<Client>(); 
+	public ArrayList<ClientDto> getUsers(String client, boolean update) throws Exception {
+		 ArrayList<ClientDto> result = new ArrayList<ClientDto>(); 
 			try {
 				if (usersList == null || update) {
 					getAllClients();

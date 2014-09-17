@@ -5,9 +5,10 @@ import java.util.List;
 
 
 
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ubpartner.entity.Guid;
+import com.ubpartner.dto.GuidDto;
 import com.ubpartner.service.IGuidService;
 
 public class Test {
@@ -22,7 +23,7 @@ public class Test {
 	       
 	     //  List<Guid> guids = service.getAllGuids();
 	       
-	       Guid g = service.getById("00876ed1-288f-42c5-8ba5-8f0231f464bc", "xct", "1.5.4");
+	       GuidDto g = service.getById("00876ed1-288f-42c5-8ba5-8f0231f464bc", "xct", "1.5.4");
 	       
 	       if(g == null) {
 	    	   

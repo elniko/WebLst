@@ -3,8 +3,9 @@ package com.ubpartner.service;
 import java.util.List;
 
 import com.ubpartner.dao.IGuidDao;
-import com.ubpartner.entity.Guid;
-import com.ubpartner.entity.Guid.GuidPk;
+import com.ubpartner.dto.GuidDto;
+import com.ubpartner.entity.GuidPk;
+
 
 public class GuidServiceImpl implements IGuidService{
 
@@ -16,7 +17,7 @@ public class GuidServiceImpl implements IGuidService{
     }
 	
 	@Override
-	public void saveGid(Guid guid) {
+	public void saveGid(GuidDto guid) {
 		dao.save(guid);
 		
 	}
@@ -24,19 +25,19 @@ public class GuidServiceImpl implements IGuidService{
 	 
 	
 	@Override
-	public List<Guid> getAllGuids() {
+	public List<GuidDto> getAllGuids() {
 		
 		return dao.getAll();
 	}
 
 	@Override
-	public Guid getById(GuidPk pk) {
+	public GuidDto getById(GuidPk pk) {
 
 		return dao.getById(pk);
 	}
 
 	@Override
-	public Guid getById(String guid, String tool, String version) {
+	public GuidDto getById(String guid, String tool, String version) {
 		return dao.getById(guid, tool, version);
 	}
 

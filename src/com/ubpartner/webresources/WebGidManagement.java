@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ubpartner.entity.Guid;
+import com.ubpartner.dto.GuidDto;
 import com.ubpartner.entity.TestEntity;
 import com.ubpartner.exception.GidNotFoundException;
 import com.ubpartner.model.EntityManager;
@@ -31,26 +31,26 @@ public class WebGidManagement {
 	@GET
 	@Path("/all")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-	public List<Guid> getLicenses() {
+	public List<GuidDto> getLicenses() {
 		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 	       IGuidService service = (IGuidService) ctx.getBean("guidService");
 	       
-	       List<Guid> guids = service.getAllGuids();
+	       List<GuidDto> guids = service.getAllGuids();
 	       return guids;
 	}
 	
 	@GET
 	@Path("/getlic/{guid}/{tool}/{version}")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
-	public Guid getLicence(@PathParam("guid") String guid, @PathParam("tool") String tool, @PathParam("version") String version) throws GidNotFoundException {
+	public GuidDto getLicence(@PathParam("guid") String guid, @PathParam("tool") String tool, @PathParam("version") String version) throws GidNotFoundException {
 		
 		
 		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 	    IGuidService service = (IGuidService) ctx.getBean("guidService");
-	    Guid guidObj =  service.getById(guid, tool, version);
+	    GuidDto guidObj =  service.getById(guid, tool, version);
 		
 		if(guidObj == null) {
 			throw new GidNotFoundException("Guid not found", guid, tool, version);
