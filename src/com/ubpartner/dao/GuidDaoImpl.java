@@ -20,30 +20,32 @@ import com.ubpartner.entity.GuidPk;
 public class GuidDaoImpl extends HibernateDaoSupport implements IGuidDao {
 
 	@Override
-	public void save(GuidDto guid) {
+	public void save(Guid guid) {
 		getHibernateTemplate().save(guid);
 
 	}
 
 	@Override
-	public List<GuidDto> getAll() {
-
-		Session session = getSessionFactory().openSession();
-		Criteria criteria = session.createCriteria(Guid.class);
-		List<Guid> guidList = (List<Guid>) criteria.list();
-		List<GuidDto> gDtoList = new ArrayList<GuidDto>();
-		for (Guid guid : guidList) {
-			gDtoList.add(mappToDto(guid));
-		}
-		session.close();
-		return gDtoList;
+	public List<Guid> getAll() {
+		
+		return	getHibernateTemplate().loadAll(Guid.class);
+		
+//		Session session = getSessionFactory().openSession();
+//		Criteria criteria = session.createCriteria(Guid.class);
+//		List<Guid> guidList = (List<Guid>) criteria.list();
+//		List<GuidDto> gDtoList = new ArrayList<GuidDto>();
+//		for (Guid guid : guidList) {
+//			gDtoList.add(mappToDto(guid));
+//		}
+//		session.close();
+//		return gDtoList;
 	}
 
+
+	
 	@Override
-	public GuidDto getById(String guid, String tool, String version) {
-
+	public Guid getById(String guid, String tool, String version) {
 		GuidPk pk = new GuidPk(guid, tool, version);
-
 		return getById(pk);
 	}
 
@@ -61,7 +63,7 @@ public class GuidDaoImpl extends HibernateDaoSupport implements IGuidDao {
 		gDto.setPeriodXvt(g.getPeriodXvt());
 		gDto.setPrimaryKey(g.getPrimaryKey());
 		gDto.setSignature(g.getSignature());
-		gDto.setStartDate(g.getStartDate());
+		gDto.setStartDate(g.getStartDate()); 
 		gDto.setWithXvt(g.getWithXvt());
 
 		Client cli = g.getClient();
@@ -75,15 +77,11 @@ public class GuidDaoImpl extends HibernateDaoSupport implements IGuidDao {
 		return gDto;
 	}
 
+	
+	
 	@Override
-	public GuidDto getById(GuidPk pk) {
-		Session session = getHibernateTemplate().getSessionFactory()
-				.openSession();
-		Guid g = (Guid) session.get(Guid.class, pk);
-		GuidDto gDto = mappToDto(g);
-		session.close();
-		
-		return gDto;
+	public Guid getById(GuidPk pk) {
+		return getHibernateTemplate().get(Guid.class, pk);
 	}
 
 }

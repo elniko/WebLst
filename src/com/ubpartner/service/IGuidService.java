@@ -3,10 +3,11 @@ package com.ubpartner.service;
 import java.util.List;
 
 import com.ubpartner.dto.GuidDto;
+import com.ubpartner.entity.Guid;
 import com.ubpartner.entity.GuidPk;
 
 public interface IGuidService {
-   public void saveGid(GuidDto guid);
+   public void saveGid(Guid guid);
    
    public List<GuidDto> getAllGuids();
    
@@ -14,4 +15,5 @@ public interface IGuidService {
    
    public GuidDto getById(String guid, String tool, String version);
    
+  
 }

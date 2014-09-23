@@ -27,11 +27,12 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 			</props>
 		</property>
 	</bean>
-	<!-- tx:annotation-driven transaction-manager="txManager" />
+	
+	<tx:annotation-driven transaction-manager="txManager" />
 	<bean id="txManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean-->
+	</bean>
 	<bean id="guidDAO" class="com.ubpartner.dao.GuidDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>

@@ -32,11 +32,9 @@ public class WebGidManagement {
 	@Path("/all")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
 	public List<GuidDto> getLicenses() {
-		
-		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+		   ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 	       IGuidService service = (IGuidService) ctx.getBean("guidService");
-	       
 	       List<GuidDto> guids = service.getAllGuids();
 	       return guids;
 	}
@@ -46,8 +44,6 @@ public class WebGidManagement {
 	@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
 	public GuidDto getLicence(@PathParam("guid") String guid, @PathParam("tool") String tool, @PathParam("version") String version) throws GidNotFoundException {
 		
-		
-		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 	    IGuidService service = (IGuidService) ctx.getBean("guidService");
 	    GuidDto guidObj =  service.getById(guid, tool, version);
@@ -56,11 +52,7 @@ public class WebGidManagement {
 			throw new GidNotFoundException("Guid not found", guid, tool, version);
 		}
 		
-		//TestEntity te = new TestEntity("hello");
-		
-		
 		return guidObj;
-		//return Response.ok(new ResponseHolder(guidObj)).build();
 	}
 	
 	
