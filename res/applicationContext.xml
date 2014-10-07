@@ -36,7 +36,13 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<bean id="guidDAO" class="com.ubpartner.dao.GuidDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	<bean class="com.ubpartner.dao.GuidDaoImpl2" id="guidDaoImpl2">
+	    <property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	<bean id="guidService" class="com.ubpartner.service.GuidServiceImpl">
 		<property name="dao" ref="guidDAO" />
+	</bean>
+	<bean class="com.ubpartner.service.GuidServiceImpl2" id="guidServiceImpl2" >
+	    <property name="dao" ref="guidDaoImpl2" />
 	</bean>
 </beans>

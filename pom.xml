@@ -104,13 +104,6 @@
             </exclusions>
         </dependency>
 
-
- <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.7.7</version>
-    </dependency>
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -239,6 +232,15 @@
     <artifactId>asm</artifactId>
     <version>4.0</version>
 </dependency>
+
+
+
+    <dependency>
+    <groupId>org.eclipse.jetty.aggregate</groupId>
+    <artifactId>jetty-all</artifactId>
+    <version>9.2.1.v20140609</version>
+</dependency>
+
 
 	</dependencies>
 </project>

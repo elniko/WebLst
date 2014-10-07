@@ -45,7 +45,7 @@ public class WebGidManagement {
 	public GuidDto getLicence(@PathParam("guid") String guid, @PathParam("tool") String tool, @PathParam("version") String version) throws GidNotFoundException {
 		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-	    IGuidService service = (IGuidService) ctx.getBean("guidService");
+	    IGuidService service = (IGuidService) ctx.getBean("guidServiceImpl2");
 	    GuidDto guidObj =  service.getById(guid, tool, version);
 		
 		if(guidObj == null) {

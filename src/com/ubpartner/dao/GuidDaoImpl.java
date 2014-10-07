@@ -22,12 +22,11 @@ public class GuidDaoImpl extends HibernateDaoSupport implements IGuidDao {
 	@Override
 	public void save(Guid guid) {
 		getHibernateTemplate().save(guid);
-
 	}
 
 	@Override
 	public List<Guid> getAll() {
-		
+		Session session = getSessionFactory().openSession();
 		return	getHibernateTemplate().loadAll(Guid.class);
 		
 //		Session session = getSessionFactory().openSession();
